@@ -1,75 +1,39 @@
 package com.company;
 
-public class Magicien {
-    //Stocke le nom de notre guerrier
-    private String nomMagicien;
-    //Stocke l'img de notre guerrier
-    private String imgMagicien;
-    //Stocke le niveau de vie du guerrier
-    private int niveauVieMagicien;
-    // Stocke la force de l'attaque du guerrier
-    private int forceAttaqueMagicien;
-
-    public String toString() {
-        return "nom magicien:" + this.nomMagicien + ", image du magicien : " + this.imgMagicien;
-    }
-
-
-
-    // * Getters * \\
-
-    public String getNomMagicien() {
-        return nomMagicien;
-    }
-
-    public String getImgMagicien(){
-        return imgMagicien;
-    }
-
-    public int getNiveauVieMagicien() {
-        return niveauVieMagicien;
-    }
-
-    public int getForceAttaqueMagicien() {
-        return forceAttaqueMagicien;
-    }
-
+public class Magicien extends Personnage {
 
 
     // * Setters * \\
 
-    public void setNomMagicien(String pNomMagicien) {
-        nomMagicien = pNomMagicien;
-    }
-
-    public void setImgMagicien(String pImgMagicien) {
-        imgMagicien = pImgMagicien;
-    }
-
-    public void setNiveauVieMagicien(int pNiveauVieMagicien) {
+    public void setNiveauViePerso(int pNiveauVieMagicien) {
         if (pNiveauVieMagicien < 3) {
-            niveauVieMagicien = 3;
+            niveauViePerso = 3;
         } else if (pNiveauVieMagicien > 6) {
-            niveauVieMagicien = 6;
+            niveauViePerso = 6;
         } else {
-            niveauVieMagicien = pNiveauVieMagicien;
+            niveauViePerso = pNiveauVieMagicien;
         }
     }
 
-    public void setForceAttaqueMagicien(int pForceAttaqueMagicien) {
-        forceAttaqueMagicien = pForceAttaqueMagicien;
+    public void setForceAttaquePerso(int pForceAttaqueMagicien) {
+        if (pForceAttaqueMagicien < 5) {
+            forceAttaquePerso= 10;
+        } else if (pForceAttaqueMagicien> 10) {
+            forceAttaquePerso = 10;
+        } else {
+            forceAttaquePerso = pForceAttaqueMagicien;
+        }
     }
-
 
 
     // * Constructeur sans paramètre * \\
 
     public Magicien () {
         System.out.println("Creation d'un magicien!");
-        nomMagicien = "Iconnu";
-        imgMagicien = "Inconnu";
-        niveauVieMagicien = 0;
-        forceAttaqueMagicien = 0;
+        nomPerso="Inconnu";
+        imgPerso = "Inconnu";
+        niveauViePerso=0;
+        forceAttaquePerso=0;
     }
 
 
@@ -78,10 +42,10 @@ public class Magicien {
 
     public Magicien (String pNomMagicien){
         System.out.println("Creation d'un magicien avec un paramètre nom!");
-        nomMagicien = pNomMagicien;
-        imgMagicien = "Inconnu";
-        niveauVieMagicien = 0;
-        forceAttaqueMagicien = 0;
+        nomPerso= pNomMagicien;
+        imgPerso = "Inconnu";
+        setNiveauViePerso(0);
+        setForceAttaquePerso(0);
     }
 
 
@@ -90,10 +54,10 @@ public class Magicien {
 
     public Magicien (String pNomMagicien, String pImgMagicien, int pNiveauVieMagicien, int pForceAttaqueMagicien){
         System.out.println("Creation d'un magicien avec un paramètre nom, image, niveau de vie et force d'attaque!");
-        nomMagicien = pNomMagicien;
-        imgMagicien = pImgMagicien;
-        niveauVieMagicien = pNiveauVieMagicien;
-        forceAttaqueMagicien = pForceAttaqueMagicien;
+        nomPerso= pNomMagicien;
+        imgPerso = pImgMagicien;
+        setNiveauViePerso(pNiveauVieMagicien);
+        setForceAttaquePerso(pForceAttaqueMagicien);
     }
 
 

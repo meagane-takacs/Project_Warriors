@@ -1,5 +1,7 @@
 package com.company;
 
+import java.sql.SQLOutput;
+
 public class Plateau {
     private int nbCasePlateau;
     private int posJoueur;
@@ -12,6 +14,8 @@ public class Plateau {
     public int lancerDes() {
         int dice = 0;
         dice = 1 + (int) (Math.random() * 6);
+        System.out.println(" ");
+        System.out.println("J'ai tiré le numéro " + dice);
         return dice;
     }
 
@@ -19,10 +23,10 @@ public class Plateau {
     Parametre : nombre de case à avancer
     Retour : nouvel position du joueur
      */
-    public int avancerJoueur(int nb) {
+    public int avancerJoueur(int nb) throws PersonnageHorsPlateauException {
         posJoueur = posJoueur + nb;
         if (posJoueur > nbCasePlateau) {
-            posJoueur = nbCasePlateau;
+            throw new PersonnageHorsPlateauException();
         }
         System.out.println("Mon pion avance donc de " + nb);
         return posJoueur;
@@ -30,7 +34,15 @@ public class Plateau {
 
     public int tourDeJeu() {
         int nbLancerDes = lancerDes();
-        avancerJoueur(nbLancerDes);
+        try {
+            avancerJoueur(nbLancerDes);
+        }
+        catch (PersonnageHorsPlateauException e) {
+            //e.printStackTrace();
+            System.out.println("On revient à la case 64");
+            posJoueur = nbCasePlateau;
+
+        }
         System.out.println("Je suis à la case " + posJoueur);
         return nbLancerDes;
 

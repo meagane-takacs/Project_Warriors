@@ -42,9 +42,9 @@ public class Menu {
         System.out.println("Nouvelle vie");
         int nouvelleVie = lireInt();
 
-        pGuerrier.setNomGuerrier(nouveauNom);
-        pGuerrier.setForceAttaqueGuerrier(nouvelleForce);
-        pGuerrier.setNiveauVieGuerrier(nouvelleVie);
+        pGuerrier.setNomPerso(nouveauNom);
+        pGuerrier.setForceAttaquePerso(nouvelleForce);
+        pGuerrier.setNiveauViePerso(nouvelleVie);
     }
 
     public void modifierDetailsMagicien(Magicien pMagicien) {
@@ -55,12 +55,13 @@ public class Menu {
         System.out.println("Nouvelle vie");
         int nouvelleVie = lireInt();
 
-        pMagicien.setNomMagicien(nouveauNom);
-        pMagicien.setForceAttaqueMagicien(nouvelleForce);
-        pMagicien.setNiveauVieMagicien(nouvelleVie);
+        pMagicien.setNomPerso(nouveauNom);
+        pMagicien.setForceAttaquePerso(nouvelleForce);
+        pMagicien.setNiveauViePerso(nouvelleVie);
     }
 
     public void showMenuContinuerOuQuitter(){
+        System.out.println(" ");
         System.out.println("Que voulez vous faire ? ");
         System.out.println("1-Relancer partie");
         System.out.println("2-Quitter");
