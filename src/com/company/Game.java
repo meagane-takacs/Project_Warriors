@@ -1,5 +1,7 @@
 package com.company;
 
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -15,6 +17,7 @@ public class Game {
     public Game() {
         monMenu = new Menu();
         monPlateau = new Plateau();
+
     }
 
     // * method start *

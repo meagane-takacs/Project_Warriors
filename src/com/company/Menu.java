@@ -9,7 +9,6 @@ public class Menu {
 
     public Menu() {
         clavier = new Scanner(System.in);
-
     }
 
     public void showMenuPrincipal() {
