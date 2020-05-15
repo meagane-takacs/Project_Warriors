@@ -11,6 +11,12 @@ public class Case {
 
     public void interaction(Personnage personnage){
 
+        if (personnage instanceof Magicien) {
+            System.out.println("Le magicien récupère le sort");
+        } else if (personnage instanceof Guerrier) {
+            System.out.println("Les guerriers ne possèdent pas de sort");
+        }
+
     }
 
 

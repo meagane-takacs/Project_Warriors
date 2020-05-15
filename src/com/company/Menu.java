@@ -33,7 +33,7 @@ public class Menu {
         System.out.println("Pour quitter le jeu, appuyer sur 0");
     }
 
-    public void modifierDetailsGuerrier(Guerrier pGuerrier) {
+    public void modifierDetails(Personnage pPerso) {
         System.out.println("Nouveau nom");
         String nouveauNom = lireString();
         System.out.println("Nouvelle force");
@@ -41,23 +41,36 @@ public class Menu {
         System.out.println("Nouvelle vie");
         int nouvelleVie = lireInt();
 
-        pGuerrier.setNomPerso(nouveauNom);
-        pGuerrier.setForceAttaquePerso(nouvelleForce);
-        pGuerrier.setNiveauViePerso(nouvelleVie);
+        pPerso.setNomPerso(nouveauNom);
+        pPerso.setForceAttaquePerso(nouvelleForce);
+        pPerso.setNiveauViePerso(nouvelleVie);
     }
 
-    public void modifierDetailsMagicien(Magicien pMagicien) {
-        System.out.println("Nouveau nom");
-        String nouveauNom = lireString();
-        System.out.println("Nouvelle force");
-        int nouvelleForce = lireInt();
-        System.out.println("Nouvelle vie");
-        int nouvelleVie = lireInt();
-
-        pMagicien.setNomPerso(nouveauNom);
-        pMagicien.setForceAttaquePerso(nouvelleForce);
-        pMagicien.setNiveauViePerso(nouvelleVie);
-    }
+//    public void modifierDetailsGuerrier(Guerrier pGuerrier) {
+//        System.out.println("Nouveau nom");
+//        String nouveauNom = lireString();
+//        System.out.println("Nouvelle force");
+//        int nouvelleForce = lireInt();
+//        System.out.println("Nouvelle vie");
+//        int nouvelleVie = lireInt();
+//
+//        pGuerrier.setNomPerso(nouveauNom);
+//        pGuerrier.setForceAttaquePerso(nouvelleForce);
+//        pGuerrier.setNiveauViePerso(nouvelleVie);
+//    }
+//
+//    public void modifierDetailsMagicien(Magicien pMagicien) {
+//        System.out.println("Nouveau nom");
+//        String nouveauNom = lireString();
+//        System.out.println("Nouvelle force");
+//        int nouvelleForce = lireInt();
+//        System.out.println("Nouvelle vie");
+//        int nouvelleVie = lireInt();
+//
+//        pMagicien.setNomPerso(nouveauNom);
+//        pMagicien.setForceAttaquePerso(nouvelleForce);
+//        pMagicien.setNiveauViePerso(nouvelleVie);
+//    }
 
     public void showMenuContinuerOuQuitter(){
         System.out.println(" ");

@@ -7,8 +7,9 @@ import java.util.Scanner;
 public class Game {
 
     // * Attributs de la class Game *
-    private Guerrier monGuerrier;
-    private Magicien monMagicien;
+//    private Guerrier monGuerrier;
+//    private Magicien monMagicien;
+    private Personnage monPerso;
     private Menu monMenu;
     private Plateau monPlateau;
     private int typePersonnage; // 1 - magicien / 2 - guerrier
@@ -17,7 +18,6 @@ public class Game {
     public Game() {
         monMenu = new Menu();
         monPlateau = new Plateau();
-
     }
 
     // * method start *
@@ -40,14 +40,14 @@ public class Game {
                 // On stocke le choix de l'utilisateur dans l'attribut nom donnee
                 String nomDonnee = monMenu.reponseEntrerNom();
                 //on instancie un nouvel objet
-                monMagicien = new Magicien(nomDonnee);
+                monPerso = new Magicien(nomDonnee);
                 //le type de personnage est 1
                 typePersonnage = 1;
                 // {Creation guerrier}
             } else if (choix == 2) {
                 monMenu.entrerNom();
                 String nomDonnee = monMenu.reponseEntrerNom();
-                monGuerrier = new Guerrier(nomDonnee);
+                monPerso = new Guerrier(nomDonnee);
                 typePersonnage = 2;
                 // {choix 0:quitter le jeu}
             } else if (choix == 0) {
@@ -66,12 +66,12 @@ public class Game {
                     //type de personnage 1=magicien
                     if (typePersonnage == 1) {
                         //affiche les détails du magicien
-                        System.out.println(monMagicien.toString());
+                        System.out.println(monPerso.toString());
                     }
                     //type de personnage 2=guerrier
                     else if (typePersonnage == 2) {
                         //affiche les détails du guerrier
-                        System.out.println(monGuerrier.toString());
+                        System.out.println(monPerso.toString());
                     }
                 }
                 //{choix 2:modifier détails du personnage}
@@ -79,12 +79,12 @@ public class Game {
                     //type de personnage 1: magicien
                     if (typePersonnage == 1) {
                         //modifier les détails du magicien
-                        monMenu.modifierDetailsMagicien(monMagicien);
+                        monMenu.modifierDetails(monPerso);
                     }
                     //type de personnage 2: guerrier
                     else if (typePersonnage == 2) {
                         //modifier les détails du guerrier
-                        monMenu.modifierDetailsGuerrier(monGuerrier);
+                        monMenu.modifierDetails(monPerso);
                     }
                 }
                 //{choix 3: demarrer jeu}
@@ -128,7 +128,7 @@ public class Game {
         // * Je creer un nouveau plateau *
         Plateau monPlateau = new Plateau();
         // * Tant que la case de mon joueur est inférieur aux cases totales du plateau, je continue des tours de jeu (jeu étant une méthode dans Plateau.java)
-        monPlateau.jeu(typePersonnage);
+        monPlateau.jeu(monPerso);
     }
 }
 

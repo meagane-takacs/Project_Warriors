@@ -36,7 +36,7 @@ public class Plateau {
         return posJoueur;
     }
 
-    public int tourDeJeu() {
+    public int tourDeJeu(Personnage monPerso) {
         int nbLancerDes = lancerDes();
         try {
             avancerJoueur(nbLancerDes);
@@ -50,17 +50,18 @@ public class Plateau {
         System.out.println("Je suis à la case " + posJoueur);
         Case maCase = cases.get(posJoueur-1); //-1 Pour que la case 1 du plateau corresponde a l'index 0
         System.out.println(maCase.toString());
-        actionCase(maCase) ;
+        maCase.interaction(monPerso);
         return nbLancerDes;
 
     }
 
-    public void jeu(int typePersonnage) {
+    public void jeu(Personnage monPerso) {
         while (posJoueur < nbCasePlateau) {
-            tourDeJeu();
+            tourDeJeu(monPerso);
         }
 
     }
+
 
 
     private void remplirPlateau(){
