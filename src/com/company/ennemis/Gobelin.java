@@ -1,4 +1,6 @@
-package com.company;
+package com.company.ennemis;
+
+import com.company.Ennemi;
 
 public class Gobelin extends Ennemi {
 

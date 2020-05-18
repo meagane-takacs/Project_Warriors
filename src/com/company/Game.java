@@ -1,8 +1,7 @@
 package com.company;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Scanner;
+import com.company.personnages.Guerrier;
+import com.company.personnages.Magicien;
 
 public class Game {
 
@@ -15,10 +14,13 @@ public class Game {
     private int typePersonnage; // 1 - magicien / 2 - guerrier
 
     // * Constructeur de la class Game *
+
+
     public Game() {
         monMenu = new Menu();
         monPlateau = new Plateau();
     }
+
 
     // * method start *
     public void start() {
@@ -119,9 +121,9 @@ public class Game {
             }
         }
 
-    // {Choix 1: creation de personnage, Choix 0: Quitter le jeu}
+        // {Choix 1: creation de personnage, Choix 0: Quitter le jeu}
         return;
-}
+    }
 
 
     public void demarrerJeu() {

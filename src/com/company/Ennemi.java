@@ -42,8 +42,7 @@ public class Ennemi extends Case{
     }
 
     public String toString() {
-        return "nom: " + this.nomEnnemi + " point de vie : " + this.pointVieEnnemi + " point d'attaque : " + this.pointAttaqueEnnemi;
-
+        return "Case ennemi: " + this.nomEnnemi + " -> (" + this.pointVieEnnemi + "points de vie et " + this.pointAttaqueEnnemi + "point d'attaque)";
     }
 
 

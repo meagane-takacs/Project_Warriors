@@ -1,54 +1,90 @@
 package com.company;
 
-abstract class Personnage {
+public abstract class Personnage {
     //Stocke le nom de notre personnage
-    protected String nomPerso;
+    private String nomPerso;
     //Stocke l'img de notre personnage
-    protected String imgPerso;
+    private String imgPerso;
     //Stocke le niveau de vie du personnage
-    protected int niveauViePerso;
+    private int niveauVieMin;
+    private int niveauVieMax;
     // Stocke la force de l'attaque du personnage
-    protected int forceAttaquePerso;
+    private int forceMax;
+    private int forceMin;
 
+    @Override
     public String toString() {
-        return "nom: " + this.nomPerso + " image: " + this.imgPerso + " niveau de vie: "+ this.niveauViePerso + " force du perso: " + this.forceAttaquePerso;
-
+        return "Personnage{" +
+                "nomPerso='" + nomPerso + '\'' +
+                ", imgPerso='" + imgPerso + '\'' +
+                ", niveauVieMin=" + niveauVieMin +
+                ", niveauVieMax=" + niveauVieMax +
+                ", forceMax=" + forceMax +
+                ", forceMin=" + forceMin +
+                '}';
     }
 
-    // * Setters * \\
-
-    public void setNomPerso(String pNomPerso) {
-        nomPerso = pNomPerso;
+    public void addAttaque(int forceAttaque) {
+        if (forceAttaque + forceMin >= forceMax) {
+            forceMin = forceMax;
+        } else {
+            forceMin = forceAttaque + forceMin;
+        }
     }
 
-    public void setImgPerso(String pImgPerso) {
-        imgPerso = pImgPerso;
+    public void addVie(int niveauVie) {
+        if (niveauVie + niveauVieMin >= niveauVieMax) {
+            niveauVieMin = niveauVieMax;
+        } else {
+            niveauVieMin = niveauVie + forceMin;
+        }
     }
-
-    abstract void setNiveauViePerso(int pNiveauVie ) ;
-
-    abstract void setForceAttaquePerso(int pForceAttaque ) ;
-
-    // * Getters * \\
 
     public String getNomPerso() {
         return nomPerso;
+    }
+
+    public void setNomPerso(String nomPerso) {
+        this.nomPerso = nomPerso;
     }
 
     public String getImgPerso() {
         return imgPerso;
     }
 
-    public int getNiveauViePerso() {
-        return niveauViePerso;
+    public void setImgPerso(String imgPerso) {
+        this.imgPerso = imgPerso;
     }
 
-    public int getForceAttaquePerso() {
-        return forceAttaquePerso;
+    public int getNiveauVieMin() {
+        return niveauVieMin;
     }
 
+    public void setNiveauVieMin(int niveauVieMin) {
+        this.niveauVieMin = niveauVieMin;
+    }
+
+    public int getNiveauVieMax() {
+        return niveauVieMax;
+    }
+
+    public void setNiveauVieMax(int niveauVieMax) {
+        this.niveauVieMax = niveauVieMax;
+    }
+
+    public int getForceMax() {
+        return forceMax;
+    }
+
+    public void setForceMax(int forceMax) {
+        this.forceMax = forceMax;
+    }
+
+    public int getForceMin() {
+        return forceMin;
+    }
+
+    public void setForceMin(int forceMin) {
+        this.forceMin = forceMin;
+    }
 }
-
-
-
-

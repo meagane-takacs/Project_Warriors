@@ -1,23 +1,27 @@
 package com.company;
 
-import java.util.ArrayList;
+import com.company.personnages.Guerrier;
+import com.company.personnages.Magicien;
 
 public class Case {
 
+    protected String nomCase;
+
+    public Case() {
+        this("");
+    }
+
+    public Case(String nomCase){
+        this.nomCase = nomCase;
+    }
+
+
+    public void interaction(Personnage personnage) {
+
+    }
+
+    @Override
     public String toString() {
-        return "Je suis une case vide";
-
+        return "On passe au tour suivant";
     }
-
-    public void interaction(Personnage personnage){
-
-        if (personnage instanceof Magicien) {
-            System.out.println("Le magicien récupère le sort");
-        } else if (personnage instanceof Guerrier) {
-            System.out.println("Les guerriers ne possèdent pas de sort");
-        }
-
-    }
-
-
 }
