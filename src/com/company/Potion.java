@@ -1,9 +1,11 @@
 package com.company;
 
 import com.company.personnages.Guerrier;
+import com.company.personnages.Magicien;
 
-public class Potion extends Case {
+public class Potion extends Case implements Materiel {
     protected int viePotion;
+
 
     public Potion(){
 
@@ -15,6 +17,7 @@ public class Potion extends Case {
     public Potion(String pNomPotion, int pViePotion){
         super(pNomPotion);
         viePotion = pViePotion;
+
     }
 
     public int getViePotion() {
@@ -27,17 +30,15 @@ public class Potion extends Case {
 
     public void interaction(Personnage personnage) {
 
-        if (personnage instanceof Guerrier) {
             personnage.addVie(viePotion);
-            System.out.println("Votre Guerrier récupère " + viePotion + " points de vie");
-        }
+            System.out.println("Votre " + personnage + " récupère " + viePotion + " points de vie");
 
     }
 
 
     @Override
     public String toString() {
-        return "Case Potion{" +
+        return "Case Potion {" +
                 "viePotion=" + viePotion +
                 '}';
     }

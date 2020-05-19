@@ -41,10 +41,13 @@ public class Ennemi extends Case{
         return pointAttaqueEnnemi;
     }
 
+
+    @Override
     public String toString() {
-        return "Case ennemi: " + this.nomEnnemi + " -> (" + this.pointVieEnnemi + "points de vie et " + this.pointAttaqueEnnemi + "point d'attaque)";
+        return "Case Ennemi {" +
+                "nomEnnemi='" + nomEnnemi + '\'' +
+                ", pointVieEnnemi=" + pointVieEnnemi +
+                ", pointAttaqueEnnemi=" + pointAttaqueEnnemi +
+                '}';
     }
-
-
-
 }

@@ -39,13 +39,9 @@ public class Plateau {
     Retour : nouvel position du joueur
      */
 
-    /**
-     *
-     * @param nb
-     * @return
-     * @throws PersonnageHorsPlateauException
-     */
-    public int avancerJoueur(int nb) throws PersonnageHorsPlateauException {
+
+    public int avancerJoueur(int nb)
+        throws PersonnageHorsPlateauException {
         posJoueur = posJoueur + nb;
         if (posJoueur > nbCasePlateau) {
             throw new PersonnageHorsPlateauException();
@@ -54,11 +50,7 @@ public class Plateau {
         return posJoueur;
     }
 
-    /**
-     *
-     * @param monPerso
-     * @return
-     */
+
     public int tourDeJeu(Personnage monPerso) {
         int nbLancerDes = lancerDes();
         try {
@@ -72,15 +64,13 @@ public class Plateau {
         System.out.println("Je suis à la case " + posJoueur);
         Case maCase = cases.get(posJoueur - 1); //-1 Pour que la case 1 du plateau corresponde a l'index 0
         System.out.println(maCase);
-        maCase.interaction(monPerso);
+        if( maCase instanceof Materiel)
+            ((Materiel)maCase).interaction(monPerso);
         return nbLancerDes;
 
     }
 
-    /**
-     *
-     * @param monPerso
-     */
+
     public void jeu(Personnage monPerso) {
         while (posJoueur < nbCasePlateau) {
             tourDeJeu(monPerso);

@@ -19,12 +19,12 @@ public abstract class Personnage {
                 ", imgPerso='" + imgPerso + '\'' +
                 ", niveauVieMin=" + niveauVieMin +
                 ", niveauVieMax=" + niveauVieMax +
-                ", forceMax=" + forceMax +
                 ", forceMin=" + forceMin +
+                ", forceMax=" + forceMax +
                 '}';
     }
 
-    public void addAttaque(int forceAttaque) {
+    public void addForceAttaque(int forceAttaque) {
         if (forceAttaque + forceMin >= forceMax) {
             forceMin = forceMax;
         } else {
@@ -36,7 +36,7 @@ public abstract class Personnage {
         if (niveauVie + niveauVieMin >= niveauVieMax) {
             niveauVieMin = niveauVieMax;
         } else {
-            niveauVieMin = niveauVie + forceMin;
+            niveauVieMin = niveauVie + niveauVieMin;
         }
     }
 

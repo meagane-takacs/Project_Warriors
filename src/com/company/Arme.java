@@ -4,7 +4,7 @@ import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
 
-public class Arme extends Case {
+public class Arme extends Case implements Materiel {
     protected int forceArme;
 
     public Arme(){
@@ -29,10 +29,10 @@ public class Arme extends Case {
     public void interaction(Personnage personnage) {
 
         if (personnage instanceof Guerrier) {
-            personnage.addAttaque(forceArme);
-            System.out.println("Votre Guerrier récupère " + forceArme + " points d'attaque");
+            personnage.addForceAttaque(forceArme);
+            System.out.println("Votre " + personnage + "récupère " + forceArme + " points d'attaque");
         } else if ( personnage instanceof Magicien){
-            System.out.println("Votre magicien ne peut pas récupérer d'armes");
+            System.out.println("Votre " + personnage + "ne peut pas récupérer d'armes");
         }
 
     }

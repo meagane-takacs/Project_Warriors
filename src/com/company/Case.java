@@ -16,12 +16,8 @@ public class Case {
     }
 
 
-    public void interaction(Personnage personnage) {
-
-    }
-
     @Override
     public String toString() {
-        return "On passe au tour suivant";
+        return "Case vide {On passe au tour suivant}";
     }
 }
