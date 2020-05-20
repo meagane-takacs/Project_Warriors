@@ -3,7 +3,7 @@ package com.company;
 import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
-public class Sort extends Case implements Materiel{
+public class Sort extends Case implements iMateriel{
     protected int forceSort;
 
 
@@ -26,7 +26,7 @@ public class Sort extends Case implements Materiel{
         this.forceSort = forceSort;
     }
 
-    public void interaction(Personnage personnage) {
+    public void interactionMateriel(Personnage personnage) {
 
         if (personnage instanceof Magicien) {
             personnage.addForceAttaque(forceSort);

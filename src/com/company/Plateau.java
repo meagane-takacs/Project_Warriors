@@ -17,6 +17,7 @@ public class Plateau {
     private int nbCasePlateau;
     private int posJoueur;
     ArrayList<Case> cases;
+    private Menu monMenu;
 
 
     public Plateau() {
@@ -24,6 +25,7 @@ public class Plateau {
         posJoueur = 0;
         cases = new ArrayList<Case>();
         remplirPlateau();
+        monMenu = new Menu();
     }
 
     public int lancerDes() {
@@ -41,7 +43,7 @@ public class Plateau {
 
 
     public int avancerJoueur(int nb)
-        throws PersonnageHorsPlateauException {
+            throws PersonnageHorsPlateauException {
         posJoueur = posJoueur + nb;
         if (posJoueur > nbCasePlateau) {
             throw new PersonnageHorsPlateauException();
@@ -64,213 +66,225 @@ public class Plateau {
         System.out.println("Je suis à la case " + posJoueur);
         Case maCase = cases.get(posJoueur - 1); //-1 Pour que la case 1 du plateau corresponde a l'index 0
         System.out.println(maCase);
-        if( maCase instanceof Materiel)
-            ((Materiel)maCase).interaction(monPerso);
+        if (maCase instanceof iMateriel)
+            ((iMateriel) maCase).interactionMateriel(monPerso);
+        if (maCase instanceof Ennemi) {
+            monMenu.showCombattreOuFuir();
+            int reponseCombat = monMenu.reponseMenuInt();
+            if (reponseCombat == 1)
+            {
+                int quiEstMort = ((Ennemi) maCase).interactionEnnemi(monPerso);
+                if (quiEstMort == 1) {
+                    System.out.println("Fin du jeu");
+                } else if (quiEstMort == 2) {
+                    System.out.println("Ennemi vaincu");
+                }
+            }
+        }
         return nbLancerDes;
-
     }
 
 
-    public void jeu(Personnage monPerso) {
-        while (posJoueur < nbCasePlateau) {
-            tourDeJeu(monPerso);
+        public void jeu (Personnage monPerso){
+            while (posJoueur < nbCasePlateau) {
+                tourDeJeu(monPerso);
+            }
+
         }
 
+        private void remplirPlateau () {
+
+            // Case 1
+            cases.add(new Eclair("Eclair", 2));
+
+            // Case 2
+            cases.add(new Massue("Massue", 3));
+
+            // Case 3
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 4
+            cases.add(new Eclair("Eclair", 2));
+
+            // Case 5
+            cases.add(new Massue("Massue", 3));
+
+            // Case 6
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 7
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 8
+            cases.add(new Eclair("Eclair", 2));
+
+            // Case 9
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 10
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 11
+            cases.add(new Massue("Massue", 3));
+
+            // Case 12
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 13
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 14
+            cases.add(new Case());
+
+            // Case 15
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 16
+            cases.add(new Case());
+
+            // Case 17
+            cases.add(new Eclair("Eclair", 2));
+
+            // Case 18
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 19
+            cases.add(new Epee("Epee", 5));
+
+            // Case 20
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 21
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 22
+            cases.add(new Massue("Massue", 3));
+
+            // Case 23
+            cases.add(new Eclair("Eclair", 2));
+
+            // Case 24
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 25
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 26
+            cases.add(new Epee("Epee", 5));
+
+            // Case 27
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 28
+            cases.add(new GrandePotion("Grande Potion", 5));
+
+            // Case 29
+            cases.add(new Case());
+
+            // Case 30
+            cases.add(new Gobelin("Gobelin", 6, 1));
+
+            // Case 31
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 32
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 33
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 34
+            cases.add(new Case());
+
+            // Case 35
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 36
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 37
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 38
+            cases.add(new Massue("Massue", 3));
+
+            // Case 39
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 40
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 41
+            cases.add(new GrandePotion("Grande Potion", 5));
+
+            // Case 42
+            cases.add(new Epee("Epee", 5));
+
+            // Case 43
+            cases.add(new PotionStandard("Potion standard", 2));
+
+            // Case 44
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 45
+            cases.add(new Dragon("Dragon", 15, 4));
+
+            // Case 46
+            cases.add(new Case());
+
+            // Case 47
+            cases.add(new Sorcier("Sorcier", 9, 2));
+
+            // Case 48
+            cases.add(new BouleDeFeu("Boule de feu", 7));
+
+            // Case 49
+            cases.add(new BouleDeFeu("Boule de feu", 7));
+
+            // Case 50
+            cases.add(new Case());
+
+            // Case 51
+            cases.add(new Case());
+
+            // Case 52
+            cases.add(new Dragon("Dragon", 15, 4));
+
+            // Case 53
+            cases.add(new Epee("Epee", 5));
+
+            // Case 54
+            cases.add(new Case());
+
+            // Case 55
+            cases.add(new Case());
+
+            // Case 56
+            cases.add(new Dragon("Dragon", 15, 4));
+
+            // Case 57
+            cases.add(new Case());
+
+            // Case 58
+            cases.add(new Case());
+
+            // Case 59
+            cases.add(new Case());
+
+            // Case 60
+            cases.add(new Case());
+
+            // Case 61
+            cases.add(new Case());
+
+            // Case 62
+            cases.add(new Dragon("Dragon", 15, 4));
+
+            // Case 63
+            cases.add(new Case());
+
+            // Case 64
+            cases.add(new Case());
+
+        }
     }
-
-    private void remplirPlateau() {
-
-        // Case 1
-        cases.add(new Eclair("Eclair", 2));
-
-        // Case 2
-        cases.add(new Massue("Massue", 3));
-
-        // Case 3
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 4
-        cases.add(new Eclair("Eclair", 2));
-
-        // Case 5
-        cases.add(new Massue("Massue", 3));
-
-        // Case 6
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 7
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 8
-        cases.add(new Eclair("Eclair", 2));
-
-        // Case 9
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 10
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 11
-        cases.add(new Massue("Massue", 3));
-
-        // Case 12
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 13
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 14
-        cases.add(new Case());
-
-        // Case 15
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 16
-        cases.add(new Case());
-
-        // Case 17
-        cases.add(new Eclair("Eclair", 2));
-
-        // Case 18
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 19
-        cases.add(new Epee("Epee", 5));
-
-        // Case 20
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 21
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 22
-        cases.add(new Massue("Massue", 3));
-
-        // Case 23
-        cases.add(new Eclair("Eclair", 2));
-
-        // Case 24
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 25
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 26
-        cases.add(new Epee("Epee", 5));
-
-        // Case 27
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 28
-        cases.add(new GrandePotion("Grande Potion", 5));
-
-        // Case 29
-        cases.add(new Case());
-
-        // Case 30
-        cases.add(new Gobelin("Gobelin", 6, 1));
-
-        // Case 31
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 32
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 33
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 34
-        cases.add(new Case());
-
-        // Case 35
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 36
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 37
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 38
-        cases.add(new Massue("Massue", 3));
-
-        // Case 39
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 40
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 41
-        cases.add(new GrandePotion("Grande Potion", 5));
-
-        // Case 42
-        cases.add(new Epee("Epee", 5));
-
-        // Case 43
-        cases.add(new PotionStandard("Potion standard", 2));
-
-        // Case 44
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 45
-        cases.add(new Dragon("Dragon", 15, 4));
-
-        // Case 46
-        cases.add(new Case());
-
-        // Case 47
-        cases.add(new Sorcier("Sorcier", 9, 2));
-
-        // Case 48
-        cases.add(new BouleDeFeu("Boule de feu", 7));
-
-        // Case 49
-        cases.add(new BouleDeFeu("Boule de feu", 7));
-
-        // Case 50
-        cases.add(new Case());
-
-        // Case 51
-        cases.add(new Case());
-
-        // Case 52
-        cases.add(new Dragon("Dragon", 15, 4));
-
-        // Case 53
-        cases.add(new Epee("Epee", 5));
-
-        // Case 54
-        cases.add(new Case());
-
-        // Case 55
-        cases.add(new Case());
-
-        // Case 56
-        cases.add(new Dragon("Dragon", 15, 4));
-
-        // Case 57
-        cases.add(new Case());
-
-        // Case 58
-        cases.add(new Case());
-
-        // Case 59
-        cases.add(new Case());
-
-        // Case 60
-        cases.add(new Case());
-
-        // Case 61
-        cases.add(new Case());
-
-        // Case 62
-        cases.add(new Dragon("Dragon", 15, 4));
-
-        // Case 63
-        cases.add(new Case());
-
-        // Case 64
-        cases.add(new Case());
-
-    }
-}

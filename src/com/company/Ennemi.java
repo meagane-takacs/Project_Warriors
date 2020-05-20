@@ -1,14 +1,42 @@
 package com.company;
 
-public class Ennemi extends Case{
+public class Ennemi extends Case {
     protected String nomEnnemi;
     protected int pointVieEnnemi;
     protected int pointAttaqueEnnemi;
 
-    public Ennemi(String pNomEnnemi, int pPointVieEnnemi, int pPointAttaqueEnnemi ){
+    public Ennemi(String pNomEnnemi, int pPointVieEnnemi, int pPointAttaqueEnnemi) {
         nomEnnemi = pNomEnnemi;
         pointVieEnnemi = pPointVieEnnemi;
         pointAttaqueEnnemi = pPointAttaqueEnnemi;
+    }
+
+    public int interactionEnnemi(Personnage personnage) {
+        //0 = personnen 'est mort, 1 perso mort, 2 ennemi mort
+        int quiEstMort = 0;
+        // tant que l'un des deux n'est pas mort
+        while (personnage.getNiveauVieMin() > 0 && this.pointVieEnnemi > 0)
+        {
+            System.out.println("Mon personnage tape");
+            this.pointVieEnnemi = this.pointVieEnnemi - personnage.getForceMin();
+
+            if (this.pointVieEnnemi > 0)
+            {
+                // L'ennemi tape sur mon personnage
+                System.out.println("L'ennemi tape");
+                personnage.setNiveauVieMin(personnage.getNiveauVieMin() - this.pointAttaqueEnnemi);
+            }
+
+            if (this.pointVieEnnemi <= 0)
+            {
+                quiEstMort = 2;
+            }
+            else if (personnage.getForceMin() <= 0)
+            {
+                quiEstMort = 1;
+            }
+        }
+        return quiEstMort;
     }
 
 

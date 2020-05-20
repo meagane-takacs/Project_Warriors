@@ -79,6 +79,14 @@ public class Menu {
         System.out.println("2-Quitter");
     }
 
+    public void showCombattreOuFuir() {
+        System.out.println(" ");
+        System.out.println("Que voulez vous faire ? ");
+        System.out.println("1-Combattre");
+        System.out.println("2-Fuir");
+    }
+
+
 
     private int lireInt() {
         int choix = clavier.nextInt();
@@ -103,6 +111,9 @@ public class Menu {
         String choix = lireString();
         return choix;
     }
+
+
+
 }
 
 //toute les methode qui permettent de discuter avec le joueur

@@ -40,6 +40,7 @@ public abstract class Personnage {
         }
     }
 
+
     public String getNomPerso() {
         return nomPerso;
     }

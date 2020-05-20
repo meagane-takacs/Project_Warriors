@@ -3,7 +3,7 @@ package com.company;
 import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
-public class Potion extends Case implements Materiel {
+public class Potion extends Case implements iMateriel {
     protected int viePotion;
 
 
@@ -28,7 +28,7 @@ public class Potion extends Case implements Materiel {
         this.viePotion = viePotion;
     }
 
-    public void interaction(Personnage personnage) {
+    public void interactionMateriel(Personnage personnage) {
 
             personnage.addVie(viePotion);
             System.out.println("Votre " + personnage + " récupère " + viePotion + " points de vie");

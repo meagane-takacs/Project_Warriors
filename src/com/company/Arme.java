@@ -4,7 +4,7 @@ import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
 
-public class Arme extends Case implements Materiel {
+public class Arme extends Case implements iMateriel {
     protected int forceArme;
 
     public Arme(){
@@ -26,7 +26,7 @@ public class Arme extends Case implements Materiel {
         this.forceArme = forceArme;
     }
 
-    public void interaction(Personnage personnage) {
+    public void interactionMateriel(Personnage personnage) {
 
         if (personnage instanceof Guerrier) {
             personnage.addForceAttaque(forceArme);
