@@ -43,6 +43,9 @@ public class Magicien extends Personnage {
         setForceMax(pForceAttaqueMagicienMax);
     }
 
+    public String champsSQL() {
+        return "'Magicien', '"+this.getNomPerso()+"', '"+this.getNiveauVieMin()+"', '"+this.getForceMin()+"', 'Sort', "+"'aucun'" ;
+    }
 
 }
 

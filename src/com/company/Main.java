@@ -6,23 +6,43 @@ import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
 import javax.swing.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        ConnectionBase connection = new ConnectionBase();
+        connection.connect();
+
+        //getHeroes
+        //connection.getHeroes();
+
+        //getHero
+        //connection.getHero(2);
+
+        //createPerso
+//        Magicien magicien = new Magicien();
+//        connection.createHero(magicien);
+
+        //update
+//        Magicien magicien = new Magicien();
+//        connection.updateHero(magicien, 1);
+//        System.out.println(magicien.getNomPerso());
+
+
+        //delete
+        connection.deleteHero(8);
+
+
         Game game = new Game();
         game.start();
-//        ArrayList<Case> cases;
-//        cases = new ArrayList<Case>();
-//        cases.add(new Eclair("Eclair", 4));
-//        cases.add(new BouleDeFeu("Boule de feu", 2));
-//        Guerrier guerrier = new Guerrier();
-//        Case bouledefeu = cases.get(1);
-//        bouledefeu.interaction(guerrier);
+
 
     }
+
 }
 
 

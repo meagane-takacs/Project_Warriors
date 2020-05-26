@@ -47,4 +47,8 @@ public class Guerrier extends Personnage {
         setNiveauVieMax(pForceAttaqueGuerrier);
     }
 
+    public String champsSQL() {
+        return "'Guerrier', '"+this.getNomPerso()+"', '"+this.getNiveauVieMin()+"', '"+this.getForceMin()+"', 'Arme', "+"'aucun'" ;
+    }
+
 }

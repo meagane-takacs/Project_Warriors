@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Menu {
@@ -22,8 +23,9 @@ public class Menu {
         System.out.println("Pour quitter le jeu, appuyer sur 0");
     }
 
-    public void entrerNom() {
+    public String entrerNom() {
         System.out.println("Entrer nom");
+        return lireString();
     }
 
     public void showMenuDetailsPerso() {
@@ -86,6 +88,23 @@ public class Menu {
         System.out.println("2-Fuir");
     }
 
+    public int demandeInfosPersoID() {
+        System.out.println(" ");
+        System.out.println("Saisissez un ID ");
+        int choix = lireInt() ;
+
+        return choix ;
+    }
+
+
+    public void ajouterNouveauPerso() {
+        System.out.println(" ");
+        System.out.println("Saississez un nom");
+        String choixNom = lireString() ;
+        System.out.println("Saissisez un type");
+        String choixType = lireString();
+
+    }
 
 
     private int lireInt() {

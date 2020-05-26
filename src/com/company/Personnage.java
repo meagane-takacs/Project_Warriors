@@ -1,6 +1,7 @@
 package com.company;
 
 public abstract class Personnage {
+
     //Stocke le nom de notre personnage
     private String nomPerso;
     //Stocke l'img de notre personnage
@@ -88,4 +89,6 @@ public abstract class Personnage {
     public void setForceMin(int forceMin) {
         this.forceMin = forceMin;
     }
+
+    public String champsSQL() { return "" ; }
 }
