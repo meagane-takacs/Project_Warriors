@@ -13,6 +13,10 @@ public class Sort extends Case implements iMateriel{
         this.forceSort = 0;
     }
 
+    /**
+     * @param pNomSort
+     * @param pForceSort
+     */
     public Sort(String pNomSort, int pForceSort) {
         super(pNomSort);
         this.forceSort = pForceSort;

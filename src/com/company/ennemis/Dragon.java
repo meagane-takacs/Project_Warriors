@@ -12,6 +12,12 @@ public class Dragon extends Ennemi {
     }
 
 
+    /**
+     * @param pNomEnnemi : le nom de mon ennemi
+     * @param pPointVieEnnemi : les points de vie de mon ennemi
+     * @param pPointAttaqueEnnemi : les points d'attaque de mon ennemi
+     * Le constructeur dragon apelle son constructeur parent avec les mêmes paramètre
+     */
     public Dragon(String pNomEnnemi, int pPointVieEnnemi, int pPointAttaqueEnnemi) {
         super(pNomEnnemi, pPointVieEnnemi, pPointAttaqueEnnemi);
     }

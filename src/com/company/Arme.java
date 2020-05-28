@@ -4,6 +4,7 @@ import com.company.personnages.Guerrier;
 import com.company.personnages.Magicien;
 
 
+
 public class Arme extends Case implements iMateriel {
     protected int forceArme;
 
@@ -13,6 +14,11 @@ public class Arme extends Case implements iMateriel {
         this.forceArme = 0;
     }
 
+    /**
+     * @param pNomArme
+     * @param pForceArme :
+     *
+     */
     public Arme(String pNomArme, int pForceArme) {
         super(pNomArme);
         this.forceArme = pForceArme;

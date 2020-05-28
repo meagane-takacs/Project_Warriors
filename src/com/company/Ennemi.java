@@ -11,6 +11,10 @@ public class Ennemi extends Case {
         pointAttaqueEnnemi = pPointAttaqueEnnemi;
     }
 
+    /**
+     * @param personnage
+     * @return
+     */
     public int interactionEnnemi(Personnage personnage) {
         //0 = personnen 'est mort, 1 perso mort, 2 ennemi mort
         int quiEstMort = 0;

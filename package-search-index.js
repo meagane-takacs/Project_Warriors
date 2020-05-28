@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.company"},{"l":"com.company.ennemis"},{"l":"com.company.equipement_guerrier"},{"l":"com.company.equipement_guerrier_et_magicien"},{"l":"com.company.equipement_magicien"},{"l":"com.company.personnages"}]

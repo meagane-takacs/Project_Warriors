@@ -14,11 +14,16 @@ public class Potion extends Case implements iMateriel {
     }
 
 
+    /**
+     * @param pNomPotion
+     * @param pViePotion
+     */
     public Potion(String pNomPotion, int pViePotion){
         super(pNomPotion);
         viePotion = pViePotion;
 
     }
+
 
     public int getViePotion() {
         return viePotion;
@@ -28,6 +33,10 @@ public class Potion extends Case implements iMateriel {
         this.viePotion = viePotion;
     }
 
+    /**
+     * Interaction du personnage avec les sorts, les potions et les armes, passent par l'interface iMateriel
+     * @param personnage
+     */
     public void interactionMateriel(Personnage personnage) {
 
             personnage.addVie(viePotion);

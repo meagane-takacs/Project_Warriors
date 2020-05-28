@@ -125,6 +125,7 @@ public class ConnectionBase {
     }
 
 
+
     public void createHero(Personnage monPerso) {
         try {
             state = conn.createStatement();

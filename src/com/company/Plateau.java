@@ -53,6 +53,10 @@ public class Plateau {
     }
 
 
+    /**
+     * @param monPerso
+     * @return
+     */
     public int tourDeJeu(Personnage monPerso) {
         int nbLancerDes = lancerDes();
         try {

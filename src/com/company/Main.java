@@ -34,7 +34,7 @@ public class Main {
 
 
         //delete
-        connection.deleteHero(8);
+//        connection.deleteHero(8);
 
 
         Game game = new Game();
